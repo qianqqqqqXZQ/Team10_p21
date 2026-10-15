@@ -1,8 +1,10 @@
 /** Public editorial content. No student IDs or private source documents are imported. */
 export const sources = {
-  bid: "reference/bid-materials/results/bid_P21.tex",
-  plan: "reference/bid-materials/results/project_plan_P21.md",
+  bid: "reference/bid-materials/revisions/2026-10-15-latest/bid_P21.tex",
+  plan: "reference/bid-materials/revisions/2026-10-15-latest/project_plan_P21.md",
   profiles: "reference/bid-materials/docs/character/",
+  revision: "15 October 2026 · latest supplied English P21 bid",
+  bidSha256: "5e9451a8fda211476991edebc8d59ad0ade7c8897a7ae29c0c4ad574d1b0bbc4",
 } as const;
 
 export const project = {
@@ -10,9 +12,37 @@ export const project = {
   team: "UNNC GRP Team 10",
   institution: "University of Nottingham Ningbo China",
   summary:
-    "An LLM-based system that turns portfolio companies’ quarterly reports into structured analysis, traceable evidence, and standardised reports for analyst review.",
+    "We plan to extract and verify information from portfolio companies’ quarterly reports, compare performance across quarters and peers, and generate standardised reports for analyst review.",
   source: sources.bid,
 };
+
+export const pageCopy = {
+  heroDescription: "A proposal for AI-assisted quarterly report analysis in private equity.",
+  proposalIntroduction: "We will connect PDF and Word extraction with company and industry analysis, peer comparisons, graded risks, and report generation. Key figures and findings will link to source evidence.",
+  planIntroduction: "Start with one company across multiple quarters, then extend the analysis and reporting coverage.",
+  teamIntroduction: "Our seven members bring experience in document extraction, model evaluation, LLM research, application development, and data annotation.",
+  teamwork: "We will divide tasks by experience and interests, help one another learn unfamiliar methods, and adjust the work through progress discussions and supervisor feedback.",
+  reviewProcess: "Weekly integration reviews during concentrated development; brief asynchronous check-ins during the low-workload period. Financial definitions and risk interpretations will be checked with the supervisor or a domain reviewer.",
+  scheduleIntroduction: "First demonstrable workflow by 15 December. Light review in January and February. Integration, evaluation, and delivery in March.",
+};
+
+export const scheduleNotes = [
+  {
+    title: "Document review & earlier tasks",
+    dates: "16 Dec 2026 – 5 Jan 2027",
+    text: "Review documents, collect feedback, and finish earlier tasks as needed. This remains a flexible team buffer, with no critical work or participant trials scheduled.",
+  },
+  {
+    title: "Low-workload period",
+    dates: "6 Jan – 28 Feb 2027",
+    text: "At most one small asynchronous task per member per week, adjusted to availability. No critical integration, required training runs, or participant trials.",
+  },
+  {
+    title: "Submission checks",
+    dates: "31 Mar – 1 Apr 2027",
+    text: "Check the release, final report, documentation, filenames, access, and receipts. Final report and software due 1 April; course dates remain tentative.",
+  },
+];
 
 export interface Experience {
   title: string;
@@ -39,12 +69,12 @@ export interface Member {
 export const members: Member[] = [
   {
     name: "Ziqian XIONG",
-    role: "Architecture & LLM integration",
+    role: "Team coordination & LLM integration",
     leader: true,
     email: "scyzx7@nottingham.edu.cn",
     website: "https://qqqqqprofile.vercel.app/",
     summary:
-      "Connecting model research with interactive applications. Leading the architecture, model comparisons, and evidence-to-report integration.",
+      "Model experiments, a Flask-based 4DGS tool, and React/TypeScript application development.",
     introduction:
       "A Computer Science undergraduate at UNNC and our team leader. His medical image segmentation research involves model implementation, dataset checking, and comparative evaluation. His 4DGS tool and MomoFocus application add Python/Flask backend and React/TypeScript interface experience, supporting extraction-method comparison and an interactive verification and reporting application.",
     skills: ["PyTorch", "React / TypeScript", "Flask", "Model evaluation"],
@@ -56,7 +86,7 @@ export const members: Member[] = [
       "Docker, electron-builder, and technical documentation for agent-assisted development, including harness and loop engineering.",
     ],
     responsibility:
-      "Lead architecture, extraction/LLM integration, and model comparisons; coordinate interfaces and review evidence-to-report consistency across modules.",
+      "Coordinate the team and supervisor feedback; compare extraction and LLM methods, guide system design, and connect structured data with report generation.",
     internships: [
       {
         title: "Pony.ai · Algorithm internship",
@@ -97,7 +127,7 @@ export const members: Member[] = [
     role: "Document extraction & evaluation",
     email: "efyyn8@nottingham.edu.cn",
     summary:
-      "PDF extraction and benchmark-based document-model evaluation, backed by data engineering and database application experience.",
+      "PDF extraction and vision-language model evaluation at YTL AI Labs, plus MySQL application experience.",
     introduction:
       "A second-year Computer Science student on a one-year exchange at UNNC after her first year at the University of Nottingham Malaysia. At YTL AI Labs, she extracted data from websites and PDFs and compared open-source vision-language models using existing benchmarks. Her machine-learning work and MySQL-backed course application support evaluation-sample preparation and structured storage.",
     skills: ["PDF extraction", "VLM evaluation", "MySQL", "RAG"],
@@ -107,7 +137,7 @@ export const members: Member[] = [
       "Model training and benchmark-based vision-language model evaluation and selection.",
     ],
     responsibility:
-      "Develop PDF/Word extraction, compare OCR and document models, and map extracted tables and fields to structured records with source locations.",
+      "Develop PDF/Word text and table extraction, compare OCR and document models, and preserve source locations, using her document-extraction and model-evaluation experience.",
     internships: [
       {
         title: "YTL AI Labs · Data-engineering internship",
@@ -131,10 +161,10 @@ export const members: Member[] = [
   },
   {
     name: "Jinyao LU",
-    role: "Report design & domain review",
+    role: "Report generation & documentation",
     email: "scyl@nottingham.edu.cn",
     summary:
-      "Bringing LLM-related research and technical writing to reporting requirements, template review, and user acceptance.",
+      "LLM-related research, academic writing, and Python/NumPy foundations for report generation and documentation.",
     introduction:
       "A Computer Science and Artificial Intelligence undergraduate at UNNC with LLM-related research and academic-writing experience. This background supports investigating evidence-grounded report generation, translating agreed requirements into templates and review criteria, and communicating evaluation results. Python/NumPy and software-engineering foundations support implementation and testing.",
     skills: ["LLM research", "Python / NumPy", "Technical writing"],
@@ -145,7 +175,7 @@ export const members: Member[] = [
       "Academic writing and research presentation.",
     ],
     responsibility:
-      "Coordinate reporting requirements and template review, document agreed indicator definitions, organise user acceptance scenarios, and assemble demonstrations and the user guide.",
+      "Study reporting requirements and templates, work with Ziqian XIONG on report generation, and prepare review examples and documentation using his LLM research and writing experience.",
     internships: [
       {
         title: "Zhejiang Dishi Information Technology · R&D internship",
@@ -176,10 +206,10 @@ export const members: Member[] = [
   },
   {
     name: "Oswald Yiwen CHONG",
-    role: "Application integration & delivery",
+    role: "Backend, storage & integration",
     email: "hcyoc1@nottingham.edu.cn",
     summary:
-      "Turning separate components into a tested application, with GitHub collaboration, integration checks, and repeatable deployment.",
+      "Application development through a bouldering social app, with GitHub collaboration and CI/CD skills.",
     introduction:
       "From Malaysia, studying Computer Science with Artificial Intelligence at the University of Nottingham. He enjoys building practical software and learning through technical challenges and teamwork. His blockchain-based bouldering social application, GitHub collaboration, and CI/CD skills support the upload-to-export application and repeatable deployment.",
     skills: ["Application development", "GitHub", "CI/CD"],
@@ -190,7 +220,7 @@ export const members: Member[] = [
       "CI/CD pipelines supporting code reliability and rapid software delivery.",
     ],
     responsibility:
-      "Integrate upload, background task status, analysis, and report export; maintain GitHub review, automated integration checks, and deployment.",
+      "Develop backend services, database storage, and report export; integrate the application and support automated checks and deployment.",
     projects: [
       {
         title: "Blockchain-based bouldering social application",
@@ -205,7 +235,7 @@ export const members: Member[] = [
     role: "Reference data & quality assurance",
     email: "scyzz23@nottingham.edu.cn",
     summary:
-      "Carefully checked annotations and structured reference data to make extraction quality measurable and reproducible.",
+      "Research experience in image annotation and data preparation, using Labelme and JSON records.",
     introduction:
       "A third-year Computer Science student with research experience in image annotation and data preparation, and skills in Labelme and JSON annotation/data management. For P21, this experience will be adapted to report-field and source annotations, with a second reviewer checking financial values, units, and reporting periods.",
     skills: ["Data annotation", "Labelme", "JSON", "Dataset preparation"],
@@ -214,22 +244,22 @@ export const members: Member[] = [
       "Labelme, JSON annotation and data management, image annotation, and dataset preparation.",
     ],
     responsibility:
-      "Prepare manually checked field-and-source annotations, record unit/period/table errors, and maintain held-out extraction evaluation samples with a second reviewer.",
+      "Prepare manually checked field-and-source samples, organise annotations, and record extraction and report errors to support testing and evaluation.",
     research: [
       {
         title: "AI-driven Analysis and Optimization of Performance on Magnets",
         description:
-          "Contributed image annotation and data preparation. His Labelme and JSON data-management skills provide a foundation for organising labels and structured annotation records, maintaining consistency between source images and annotations.",
+          "Contributed image annotation and data preparation. Her Labelme and JSON data-management skills provide a foundation for organising labels and structured annotation records, maintaining consistency between source images and annotations.",
       },
     ],
     source: sources.bid,
   },
   {
     name: "Yue WU",
-    role: "Quarterly analysis & risk rules",
+    role: "Calculations, comparisons & risk rules",
     email: "sgyyw10@nottingham.edu.cn",
     summary:
-      "Combining programming and technical analysis to implement documented calculations, risk rules, and checkable reference examples.",
+      "Programming, technical analysis, and CCN research and writing, with Python, Java, and SQLite skills.",
     introduction:
       "Studies Computer Science at UNNC. Her CCN research and paper writing involve literature review and technical analysis, complemented by Python, Java, and SQLite. This provides a basis for researching analytical methods, implementing reviewed calculations and risk rules, and documenting their assumptions.",
     skills: ["Python / Java", "SQLite", "Technical analysis"],
@@ -240,7 +270,7 @@ export const members: Member[] = [
       "Algorithm analysis, technical literature review, and academic writing.",
     ],
     responsibility:
-      "Implement documented quarter-on-quarter/year-on-year calculations and configurable risk rules after domain review; prepare reference examples and technical descriptions.",
+      "Implement agreed quarterly calculations, industry and peer comparisons, and risk rules; check worked examples and document methods with supervisor or domain-reviewer guidance.",
     projects: [
       {
         title: "Coursework development",
@@ -259,10 +289,10 @@ export const members: Member[] = [
   },
   {
     name: "Xinyun HU",
-    role: "Verification interface & data views",
+    role: "Upload, verification & report-review pages",
     email: "scyxh8@nottingham.edu.cn",
     summary:
-      "Connecting database records with clear verification forms, quarterly comparisons, and visible review states.",
+      "SQL, SQLite, and web-development foundations, alongside an AI-enabled Connect Four project.",
     introduction:
       "A third-year Computer Science student with programming, SQL, SQLite, and web-technology foundations and an AI-enabled Connect Four project. These skills support forms connecting extracted indicators to database records, and views presenting quarterly comparisons, missing data, and review status.",
     skills: ["SQL / SQLite", "Web development", "Python", "Java"],
@@ -272,7 +302,7 @@ export const members: Member[] = [
       "Git, VS Code, Eclipse, and Visual Paradigm.",
     ],
     responsibility:
-      "Implement verification forms, indicator storage/API integration, and company/quarter comparison views, including missing-data and review-status displays.",
+      "Build upload, source-verification, comparison, and report-review pages; connect them to backend data and display missing information and review status.",
     projects: [
       {
         title: "Connect Four Game with AI",
@@ -313,12 +343,16 @@ export const designDetails = [
     text: "One company, multiple quarters: import, extract, structure, verify, store, calculate QoQ/YoY, and generate a standardised report. Corrections create new versions and update affected analyses and drafts.",
   },
   {
-    title: "The complete project",
+    title: "Analysis & risk coverage",
     text: "Add company and industry quarterly analysis, anomaly attribution, sector/stage peer matching, relative positions and ranking movements. Grade operational, compliance, team-change, and performance-bet (VAM) risks. Hold/exit/impairment indications and value-creation suggestions remain subject to analyst review.",
   },
   {
     title: "The proposed technology",
     text: "React interfaces, Python/FastAPI APIs, and MySQL structured records. Evaluate PyMuPDF/pdfplumber and python-docx, use PaddleOCR as needed, and preserve monetary precision with Decimal. LLMs structure extracted information and assemble evidence-grounded reports; calculations and risk thresholds use programmatic rules. Docker Compose supports reproducible deployment. BGE-M3/FAISS retrieval is an optional later enhancement, after the core workflow is stable.",
+  },
+  {
+    title: "How we will evaluate it",
+    text: "Agree authorised samples, indicator definitions, templates, and validation criteria with the supervisor. Compare baseline parsing with LLM extraction on held-out companies and periods. Check extraction and source accuracy, calculations, risk errors, and report consistency; record missing evidence explicitly. Reviewer evaluation will follow the required approval.",
   },
   {
     title: "What we will deliver",
@@ -347,7 +381,7 @@ export const phases: Phase[] = [
     dates: "21 Oct – 3 Nov 2026",
     periodLabel: "OCT–NOV",
     summary:
-      "Start with the right questions, authorised evidence, and a shared definition of quality.",
+      "Agree requirements and acceptance criteria with the supervisor, and audit the available report samples.",
     tasks: [
       "Agree analyst journeys, report templates, indicator definitions, and acceptance criteria.",
       "Inventory company, industry, peer, and VAM evidence; trial one sample and define source-location records.",
@@ -364,7 +398,7 @@ export const phases: Phase[] = [
     dates: "4 – 24 Nov 2026",
     periodLabel: "NOVEMBER",
     summary:
-      "Turn documents into structured records without losing the path back to the original.",
+      "Build document extraction, source-linked verification, and the first checked reference set.",
     tasks: [
       "Implement PDF/Word text and table extraction, OCR, and LLM structuring.",
       "Build source-linked verification and MySQL records with unit and period checks.",
@@ -381,7 +415,7 @@ export const phases: Phase[] = [
     dates: "25 Nov – 15 Dec 2026",
     periodLabel: "NOV–DEC",
     summary:
-      "Connect verified numbers to repeatable calculations and a first evidence-linked report.",
+      "Demonstrate the complete workflow for one company across multiple quarters by 15 December.",
     tasks: [
       "Implement comparable-basis QoQ/YoY calculations, missing-period handling, and anomaly rules.",
       "By 15 December, demonstrate the one-company multi-quarter upload-to-export workflow, including updates after a source correction.",
@@ -416,7 +450,7 @@ export const phases: Phase[] = [
     dates: "1 – 9 Mar 2027",
     periodLabel: "01–09 MAR",
     summary:
-      "Place company performance in context and make every risk finding reviewable.",
+      "Integrate the industry, peer, and risk pilots with the upload-to-export application by 9 March.",
     tasks: [
       "Integrate piloted industry changes, sector/stage peer matching, positions, and ranking movements.",
       "Connect the four risk categories with explicit evidence requirements and missing-data states.",
@@ -433,7 +467,7 @@ export const phases: Phase[] = [
     dates: "10 – 16 Mar 2027",
     periodLabel: "10–16 MAR",
     summary:
-      "Measure what is correct, understand what fails, and refine the experience with reviewers.",
+      "Evaluate extraction, calculations, risk findings, and reports against prepared samples and reviewer feedback.",
     tasks: [
       "Use prepared held-out companies/periods and reference samples to compare baseline parsing with LLM extraction.",
       "Check sources, units, reporting bases, calculations, risk errors, and report consistency.",
@@ -450,7 +484,7 @@ export const phases: Phase[] = [
     dates: "17 – 30 Mar 2027",
     periodLabel: "17–30 MAR",
     summary:
-      "Freeze, verify, document, and demonstrate a complete and reproducible system.",
+      "Freeze features and rules on 17 March, verify deployment by 23 March, and rehearse during 24–30 March.",
     tasks: [
       "Freeze features and rules on 17 March; regress the import-to-export workflow and risk cases.",
       "Verify Docker Compose deployment in a fresh environment by 23 March and complete operational documentation.",
@@ -469,19 +503,34 @@ export const milestones = [
     text: "Record compute, model, and storage needs.",
   },
   {
-    date: "28 Oct 2026 · 15:00",
+    date: "28 Oct 2026",
     title: "Ethics submission",
     text: "Participant work follows the required approval.",
   },
   {
-    date: "5 Nov 2026 · 15:00",
+    date: "5 Nov 2026",
     title: "Team website",
     text: "Project information and non-confidential examples.",
   },
   {
-    date: "10 Dec 2026 · 15:00",
+    date: "10 Dec 2026",
     title: "Interim report",
     text: "Baseline evidence, architecture, risks, and next steps.",
+  },
+  {
+    date: "15 Dec 2026",
+    title: "First workflow demonstration",
+    text: "One company, multiple quarters: upload, verify, calculate, and export.",
+  },
+  {
+    date: "17 Mar 2027",
+    title: "Feature & rule freeze",
+    text: "Begin release regression checks and deployment verification.",
+  },
+  {
+    date: "23 Mar 2027",
+    title: "Deployment verified",
+    text: "Verify Docker Compose deployment in a fresh environment.",
   },
   {
     date: "30 Mar 2027",
@@ -489,31 +538,8 @@ export const milestones = [
     text: "Release, final report, documentation, and demo ready.",
   },
   {
-    date: "1 Apr 2027 · 15:00",
+    date: "1 Apr 2027",
     title: "Final submission",
     text: "Team final report and software; verify access and receipts.",
-  },
-];
-
-export const strengths = [
-  {
-    title: "Experience at the source.",
-    text: "Yun Xin’s PDF extraction and benchmark-based document-model selection complement Ziqian XIONG’s model implementation and comparative experiments.",
-    tags: ["Document understanding", "Model evaluation"],
-  },
-  {
-    title: "Analysis you can check.",
-    text: "Ziqian ZHANG’s annotation and JSON experience supports reference samples. Yue WU’s programming and technical analysis supports reviewed calculations and documented risk rules.",
-    tags: ["Reference data", "Reproducibility"],
-  },
-  {
-    title: "A connected application.",
-    text: "Our React/Flask projects, MySQL application experience, SQL and web foundations, and CI/CD skills span verification interfaces, structured storage, integration, and deployment.",
-    tags: ["Full-stack foundations", "Reliable delivery"],
-  },
-  {
-    title: "Curiosity with a method.",
-    text: "A shared interest in AI and finance is backed by weekly integration reviews during concentrated development, brief asynchronous check-ins during the lighter period, early demonstrations, and paired checks. Jinyao LU and Ziqian XIONG will coordinate domain feedback on definitions, templates, and interpretations.",
-    tags: ["Domain validation", "Team ownership"],
   },
 ];

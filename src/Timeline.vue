@@ -5,6 +5,7 @@ import type { Phase } from "./data";
 const props = defineProps<{
   phases: Phase[];
   milestones: { date: string; title: string; text: string }[];
+  scheduleNotes: { title: string; dates: string; text: string }[];
 }>();
 const selected = ref(1);
 const active = computed(() =>
@@ -46,7 +47,7 @@ function navigate(event: KeyboardEvent, index: number) {
 <template>
   <div class="timeline-app">
     <p class="schedule-basis">
-      A schedule organised by dates, workload, and demonstrable outputs.
+      Proposed schedule · all phases describe planned work.
     </p>
     <div class="phase-tabs" role="tablist" aria-label="Development phases">
       <button
@@ -106,21 +107,9 @@ function navigate(event: KeyboardEvent, index: number) {
     </div>
 
     <div class="timeline-notes">
-      <p>
-        <span>Team buffer</span>16 Dec 2026 – 5 Jan 2027<br /><small
-          >Reserved for flexibility; not university holiday dates.</small
-        >
-      </p>
-      <p>
-        <span>Low-workload period</span>6 Jan – 28 Feb 2027<br /><small
-          >At most one small asynchronous task per member per week; adjusted to
-          availability.</small
-        >
-      </p>
-      <p>
-        <span>Submission checks</span>31 Mar – 1 Apr 2027<br /><small
-          >Final report and software due 1 Apr, 15:00.</small
-        >
+      <p v-for="note in scheduleNotes" :key="note.title">
+        <span>{{ note.title }}</span>{{ note.dates }}<br />
+        <small>{{ note.text }}</small>
       </p>
     </div>
 
@@ -161,7 +150,7 @@ function navigate(event: KeyboardEvent, index: number) {
               </td>
             </tr>
             <tr class="buffer-row">
-              <th scope="row">Team buffer</th>
+              <th scope="row">Document review / earlier tasks</th>
               <td></td>
               <td></td>
               <td><span>16–31</span></td>
@@ -186,7 +175,7 @@ function navigate(event: KeyboardEvent, index: number) {
     </details>
 
     <div class="milestone-heading">
-      <h3>Dates that matter.</h3>
+      <h3>Delivery targets & course dates</h3>
       <p>
         Team targets & tentative course milestones · course dates subject to
         formal notices.

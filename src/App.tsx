@@ -1,7 +1,33 @@
 import { useEffect, useRef, useState } from "react";
 import type { Experience, Member } from "./data";
-import { project, members, workflow, designDetails, strengths } from "./data";
+import { project, members, workflow, designDetails, pageCopy } from "./data";
 import TimelineBridge from "./TimelineBridge";
+
+/** Decorative, invented market-style series; it carries no financial data. */
+function MarketBackground() {
+  const curve = "M-20 492 L16 479 34 492 55 462 73 471 91 439 112 452 132 421 154 435 177 406 198 426 222 398 243 414 263 389 282 405 304 373 325 386 346 355 367 377 390 346 412 365 433 325 454 340 476 313 495 336 516 304 538 326 558 295 581 311 604 280 623 306 644 292 663 325 682 310 704 349 724 371 744 354 766 391 785 373 806 407 825 387 845 362 865 378 885 338 904 352 925 310 945 328 964 292 983 304 1004 270 1024 289 1045 251 1066 268 1086 230 1107 244 1126 205 1147 219 1167 185 1188 203 1208 166 1228 185 1248 148 1269 165 1290 131 1310 146 1331 110 1352 128 1372 93 1393 108 1420 72";
+  return (
+    <svg className="market-background" viewBox="0 0 1400 650" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="market-gold" x1="0" x2="1">
+          <stop offset="0" stopColor="#bc963e" stopOpacity="0.2" />
+          <stop offset="0.5" stopColor="#c8a64e" stopOpacity="0.14" />
+          <stop offset="1" stopColor="#ab7d1e" stopOpacity="0.65" />
+        </linearGradient>
+        <linearGradient id="market-wash" x1="0" y1="0" x2="0" y2="1">
+          <stop stopColor="#d7b456" stopOpacity="0.1" />
+          <stop offset="1" stopColor="#d7b456" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      <g stroke="#b99a49" strokeWidth="0.7" opacity="0.09">
+        <path d="M0 170H1400 M0 290H1400 M0 410H1400 M0 530H1400" />
+        <path d="M160 100V650 M340 100V650 M520 100V650 M700 100V650 M880 100V650 M1060 100V650 M1240 100V650" />
+      </g>
+      <path d={`${curve} L1420 650 H-20 Z`} fill="url(#market-wash)" />
+      <path d={curve} fill="none" stroke="url(#market-gold)" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
+    </svg>
+  );
+}
 
 function Arrow({
   diagonal = false,
@@ -233,9 +259,9 @@ export default function App() {
   const profileTrigger = useRef<HTMLButtonElement | null>(null);
   const nav = [
     { id: "project", label: "Project" },
-    { id: "team", label: "Team" },
+    { id: "plan", label: "Plan" },
     { id: "timeline", label: "Timeline" },
-    { id: "why-us", label: "Why Us" },
+    { id: "team", label: "Team" },
   ];
 
   useEffect(() => {
@@ -259,7 +285,7 @@ export default function App() {
       { rootMargin: "-15% 0px -55% 0px" },
     );
     document
-      .querySelectorAll("main section[id]")
+      .querySelectorAll("main section[id], #plan")
       .forEach((el) => navObserver.observe(el));
     return () => {
       revealObserver.disconnect();
@@ -314,8 +340,8 @@ export default function App() {
               </a>
             ))}
           </nav>
-          <a className="header-cta" href="#project">
-            Explore P21 <Arrow diagonal />
+          <a className="header-cta" href="#timeline">
+            View our schedule <Arrow diagonal />
           </a>
           <button
             id="menu-toggle"
@@ -340,25 +366,24 @@ export default function App() {
           aria-labelledby="hero-title"
         >
           <div className="hero-frame">
+            <MarketBackground />
             <div className="hero-topline">
               <span>UNIVERSITY OF NOTTINGHAM NINGBO CHINA</span>
               <span>PROJECT PROPOSAL / P21</span>
             </div>
             <div className="hero-content">
-              <p className="script-line">Clarity, every quarter.</p>
+              <p className="script-line">Our P21 proposal</p>
               <h1 id="hero-title">
                 Quarterly reports.
                 <br />
-                <span>Evidence-led insight.</span>
+                <span>Analysis you can check.</span>
               </h1>
               <p className="hero-description">
-                AI-driven post-investment analysis.
-                <br className="mobile-break" /> Built around evidence. Designed
-                for people.
+                {pageCopy.heroDescription}
               </p>
               <div className="hero-actions">
-                <a className="button button-gold" href="#project">
-                  Discover our project <Arrow diagonal />
+                <a className="button button-gold" href="#timeline">
+                  View our schedule <Arrow diagonal />
                 </a>
                 <a className="button button-outline" href="#team">
                   Meet the team <Arrow />
@@ -384,28 +409,6 @@ export default function App() {
           </div>
         </section>
 
-        <div className="intro-strip container reveal">
-          <p>
-            From complex documents.
-            <br />
-            <strong>To a clearer perspective.</strong>
-          </p>
-          <div className="intro-facts">
-            <div>
-              <span>07</span>
-              <p>Team members</p>
-            </div>
-            <div>
-              <span>07</span>
-              <p>Project phases</p>
-            </div>
-            <div>
-              <span>01</span>
-              <p>Connected vision</p>
-            </div>
-          </div>
-        </div>
-
         <section
           className="project-section container section-space"
           id="project"
@@ -414,11 +417,11 @@ export default function App() {
             <SectionHeading
               number="01"
               label="OUR PROJECT"
-              text="Quarterly reporting should reveal what matters. We propose an evidence-linked workflow that gives analysts more time to understand performance, context, and emerging risks."
+              text={pageCopy.proposalIntroduction}
             >
-              Less repetition.
+              From quarterly reports
               <br />
-              <span>More perspective.</span>
+              <span>to reviewed analysis.</span>
             </SectionHeading>
           </div>
           <div className="workflow-grid">
@@ -437,67 +440,13 @@ export default function App() {
             ))}
           </div>
 
-          <div className="evidence-panel reveal">
-            <div className="evidence-copy">
-              <span className="eyebrow">EVIDENCE IS THE THREAD</span>
-              <h3>
-                Every insight.
-                <br />
-                <em>A path to its source.</em>
-              </h3>
-              <p>
-                Original documents, verified data, and reviewed findings stay
-                connected. Analysts can check the evidence, correct a figure,
-                and review the resulting report.
-              </p>
-            </div>
-            <div
-              className="evidence-stack"
-              aria-label="Proposed evidence trail: source document, verified record, analyst-reviewed report"
-            >
-              <div className="evidence-item">
-                <span className="evidence-index">01</span>
-                <div>
-                  <span className="tiny-label">SOURCE DOCUMENT</span>
-                  <strong>Quarterly report</strong>
-                  <small>Original text, tables & page references</small>
-                </div>
-                <ProcessIcon name="document" />
-              </div>
-              <div className="evidence-connector" aria-hidden="true">
-                ↓
-              </div>
-              <div className="evidence-item">
-                <span className="evidence-index">02</span>
-                <div>
-                  <span className="tiny-label">VERIFIED RECORD</span>
-                  <strong>Structured information</strong>
-                  <small>Values, units, periods & source links</small>
-                </div>
-                <ProcessIcon name="scan" />
-              </div>
-              <div className="evidence-connector" aria-hidden="true">
-                ↓
-              </div>
-              <div className="evidence-item">
-                <span className="evidence-index">03</span>
-                <div>
-                  <span className="tiny-label">REVIEWED OUTPUT</span>
-                  <strong>Evidence-led report</strong>
-                  <small>Calculations, risks & analyst approval</small>
-                </div>
-                <ProcessIcon name="report" />
-              </div>
-            </div>
-          </div>
-
-          <div className="design-heading">
-            <h3>The plan, in detail.</h3>
-            <p>A focused starting point. A considered route forward.</p>
+          <div className="design-heading" id="plan">
+            <h3>Our plan</h3>
+            <p>{pageCopy.planIntroduction}</p>
           </div>
           <div className="design-details">
             {designDetails.map((detail, index) => (
-              <details key={detail.title}>
+              <details key={detail.title} open={index === 0}>
                 <summary>
                   <span className="detail-number">0{index + 1}</span>
                   {detail.title}
@@ -521,18 +470,39 @@ export default function App() {
           </div>
         </section>
 
+        <section
+          className="timeline-section container section-space"
+          id="timeline"
+        >
+          <div className="timeline-heading reveal">
+            <SectionHeading
+              number="02"
+              label="OUR TIMELINE"
+              text={pageCopy.scheduleIntroduction}
+            >
+              Our schedule.
+              <br />
+              <span>October to April.</span>
+            </SectionHeading>
+            <div className="timeline-range">
+              <span>21 OCT 2026</span>
+              <span className="range-line" />
+              <span>01 APR 2027</span>
+            </div>
+          </div>
+          <TimelineBridge />
+        </section>
+
         <section className="team-section section-space" id="team">
           <div className="container">
             <div className="team-heading reveal">
-              <SectionHeading number="02" label="OUR TEAM">
-                Seven perspectives.
+              <SectionHeading number="03" label="OUR TEAM">
+                Our team.
                 <br />
-                <span>One shared ambition.</span>
+                <span>Who will do what.</span>
               </SectionHeading>
               <p>
-                Researchers, builders, and curious problem-solvers. Our
-                experience connects the stages of P21, from the first extracted
-                table to the final reviewed report.
+                {pageCopy.teamIntroduction}
               </p>
             </div>
             <div className="team-grid">
@@ -552,7 +522,7 @@ export default function App() {
                   <div className="member-card-content">
                     <h3>{member.name}</h3>
                     <p className="member-role">{member.role}</p>
-                    <p className="member-summary">{member.summary}</p>
+                    <p className="member-summary">{member.responsibility}</p>
                     <div className="skill-tags">
                       {member.skills.map((skill) => (
                         <span key={skill}>{skill}</span>
@@ -574,91 +544,16 @@ export default function App() {
               ))}
             </div>
             <p className="team-footnote">
-              Shared interfaces. Paired checks. Weekly integration reviews.
+              {pageCopy.teamwork}
               <br />
-              Responsibilities above describe our proposed work distribution.
+              {pageCopy.reviewProcess}
             </p>
           </div>
         </section>
 
-        <section
-          className="timeline-section container section-space"
-          id="timeline"
-        >
-          <div className="timeline-heading reveal">
-            <SectionHeading
-              number="03"
-              label="OUR TIMELINE"
-              text="Seven purposeful phases, including a lighter period for independent review. A realistic plan that gives discovery, development, and validation the space they need."
-            >
-              A clear plan.
-              <br />
-              <span>From first page to final report.</span>
-            </SectionHeading>
-            <div className="timeline-range">
-              <span>21 OCT 2026</span>
-              <span className="range-line" />
-              <span>01 APR 2027</span>
-            </div>
-          </div>
-          <TimelineBridge />
-        </section>
-
-        <section className="why-section section-space" id="why-us">
-          <div className="container">
-            <div className="reveal">
-              <SectionHeading
-                number="04"
-                label="WHY US"
-                text="Our case is built on relevant experience, a shared interest in AI and finance, and a practical way to turn that interest into accountable work."
-              >
-                The right foundations.
-                <br />
-                <span>The drive to build.</span>
-              </SectionHeading>
-            </div>
-            <div className="strength-grid">
-              {strengths.map((strength, index) => (
-                <article className="strength-card reveal" key={strength.title}>
-                  <span className="strength-number">0{index + 1}</span>
-                  <div>
-                    <h3>{strength.title}</h3>
-                    <p>{strength.text}</p>
-                    <div className="strength-tags">
-                      {strength.tags.map((tag) => (
-                        <span key={tag}>{tag}</span>
-                      ))}
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-            <div className="domain-note">
-              <span className="domain-line" />
-              <p>
-                Software and AI experience, strengthened by domain expertise.
-                <br />
-                <strong>
-                  Financial definitions and investment interpretations will be
-                  validated with a supervisor or domain reviewer.
-                </strong>
-              </p>
-            </div>
-          </div>
-        </section>
-
         <section className="closing container reveal">
-          <p className="script-line">Built with care. Grounded in evidence.</p>
-          <h2>
-            Complex reports.
-            <br />
-            <span>Clearer possibilities.</span>
-          </h2>
-          <p>
-            We are UNNC GRP Team 10.
-            <br />
-            Ready to connect AI, finance, and thoughtful engineering.
-          </p>
+          <h2>Discuss the P21 proposal.</h2>
+          <p>Contact Ziqian XIONG, our team leader.</p>
           <a
             className="button button-gold"
             href="mailto:scyzx7@nottingham.edu.cn"
@@ -686,9 +581,9 @@ export default function App() {
             </div>
             <div className="footer-links">
               <a href="#project">Our project</a>
+              <a href="#plan">Our plan</a>
               <a href="#team">Our team</a>
-              <a href="#timeline">Our timeline</a>
-              <a href="#why-us">Why us</a>
+              <a href="#timeline">Our schedule</a>
             </div>
             <div className="footer-contact">
               <span>LET’S CONNECT</span>
