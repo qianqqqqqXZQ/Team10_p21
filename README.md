@@ -1,4 +1,4 @@
-# UNNC GRP Team 10 · P21
+# UNNC GRP Team202610 · P21
 
 An English project proposal website for **AI-Driven Post-Investment Quarterly Report Analysis for Private Equity Portfolios**. The cream-and-gold visual design references [Sav Gold](https://sav.money/gold), with original CSS/SVG decorations and plain-text team identity. There is no team crest or logo.
 

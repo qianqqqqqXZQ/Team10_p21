@@ -9,7 +9,7 @@ export const sources = {
 
 export const project = {
   name: "AI-Driven Post-Investment Quarterly Report Analysis for Private Equity Portfolios",
-  team: "UNNC GRP Team 10",
+  team: "UNNC GRP Team202610",
   institution: "University of Nottingham Ningbo China",
   summary:
     "We plan to extract and verify information from portfolio companies’ quarterly reports, compare performance across quarters and peers, and generate standardised reports for analyst review.",

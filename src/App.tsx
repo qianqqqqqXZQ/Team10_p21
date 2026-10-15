@@ -343,10 +343,10 @@ export default function App() {
           <a
             href="#top"
             className="wordmark"
-            aria-label="UNNC GRP Team 10 home"
+            aria-label={`${project.team} home`}
           >
             <strong>
-              TEAM 10<span> / </span>
+              Team202610<span> / </span>
             </strong>
             <span>UNNC GRP</span>
           </a>
@@ -595,7 +595,7 @@ export default function App() {
           <div className="footer-top">
             <div>
               <a className="footer-wordmark" href="#top">
-                UNNC GRP Team 10
+                {project.team}
               </a>
               <p>
                 {project.institution}
@@ -625,7 +625,7 @@ export default function App() {
             </div>
           </div>
           <div className="footer-bottom">
-            <span>© 2026 UNNC GRP Team 10. P21 project proposal.</span>
+            <span>© 2026 {project.team}. P21 project proposal.</span>
             <a href="#top">Back to top ↑</a>
           </div>
         </div>
