@@ -513,7 +513,9 @@ export default function App() {
             </SectionHeading>
             <div className="timeline-range">
               <span>21 OCT 2026</span>
-              <span className="range-line" />
+              <svg className="range-line" viewBox="0 0 100 12" fill="none" aria-hidden="true" focusable="false">
+                <path d="M1 6H98M93 1L98 6L93 11" vectorEffect="non-scaling-stroke" />
+              </svg>
               <span>01 APR 2027</span>
             </div>
           </div>
