@@ -266,6 +266,12 @@ button {
   z-index: -1;
   pointer-events: none;
 }
+@media (max-width: 580px) {
+  .market-background {
+    width: 180%;
+    left: -40%;
+  }
+}
 .hero-content {
   position: relative;
 }

@@ -3,19 +3,45 @@ import type { Experience, Member } from "./data";
 import { project, members, workflow, designDetails, pageCopy } from "./data";
 import TimelineBridge from "./TimelineBridge";
 
-/** Decorative, invented market-style series; it carries no financial data. */
+/** Fixed drawing coordinates only: no real prices, dates, or performance data. */
+const marketCurve = (() => {
+  const turns = [
+    [0, 440], [75, 452], [145, 396], [220, 425], [300, 324],
+    [360, 349], [420, 272], [470, 306], [535, 288], [600, 384],
+    [665, 367], [735, 445], [800, 418], [875, 310], [930, 347],
+    [1000, 244], [1065, 276], [1125, 188], [1195, 232],
+    [1250, 150], [1315, 182], [1400, 100],
+  ];
+  let seed = 210;
+  let segment = 0;
+  let jitter = 0;
+  return Array.from({ length: 281 }, (_, index) => {
+    const x = index * 5;
+    while (segment < turns.length - 2 && x > turns[segment + 1][0]) segment++;
+    const [startX, startY] = turns[segment];
+    const [endX, endY] = turns[segment + 1];
+    const progress = (x - startX) / (endX - startX);
+    // Seeded, correlated offsets make the drawing stable across renders.
+    seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+    jitter = jitter * 0.42 + (seed / 4294967296 - 0.5) * 29;
+    const y = startY + (endY - startY) * progress + jitter;
+    return `${index === 0 ? "M" : "L"}${x} ${y.toFixed(1)}`;
+  }).join(" ");
+})();
+
 function MarketBackground() {
-  const curve = "M-20 492 L16 479 34 492 55 462 73 471 91 439 112 452 132 421 154 435 177 406 198 426 222 398 243 414 263 389 282 405 304 373 325 386 346 355 367 377 390 346 412 365 433 325 454 340 476 313 495 336 516 304 538 326 558 295 581 311 604 280 623 306 644 292 663 325 682 310 704 349 724 371 744 354 766 391 785 373 806 407 825 387 845 362 865 378 885 338 904 352 925 310 945 328 964 292 983 304 1004 270 1024 289 1045 251 1066 268 1086 230 1107 244 1126 205 1147 219 1167 185 1188 203 1208 166 1228 185 1248 148 1269 165 1290 131 1310 146 1331 110 1352 128 1372 93 1393 108 1420 72";
   return (
-    <svg className="market-background" viewBox="0 0 1400 650" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <svg className="market-background" viewBox="0 0 1400 650" preserveAspectRatio="none" aria-hidden="true" focusable="false">
       <defs>
         <linearGradient id="market-gold" x1="0" x2="1">
-          <stop offset="0" stopColor="#bc963e" stopOpacity="0.2" />
-          <stop offset="0.5" stopColor="#c8a64e" stopOpacity="0.14" />
-          <stop offset="1" stopColor="#ab7d1e" stopOpacity="0.65" />
+          <stop offset="0" stopColor="#b88b24" stopOpacity="0.62" />
+          <stop offset="0.35" stopColor="#c4a34e" stopOpacity="0.22" />
+          <stop offset="0.6" stopColor="#b9983e" stopOpacity="0.2" />
+          <stop offset="1" stopColor="#ac7c17" stopOpacity="0.76" />
         </linearGradient>
         <linearGradient id="market-wash" x1="0" y1="0" x2="0" y2="1">
-          <stop stopColor="#d7b456" stopOpacity="0.1" />
+          <stop stopColor="#c6a03b" stopOpacity="0.16" />
+          <stop offset="0.75" stopColor="#d7b456" stopOpacity="0.025" />
           <stop offset="1" stopColor="#d7b456" stopOpacity="0" />
         </linearGradient>
       </defs>
@@ -23,8 +49,9 @@ function MarketBackground() {
         <path d="M0 170H1400 M0 290H1400 M0 410H1400 M0 530H1400" />
         <path d="M160 100V650 M340 100V650 M520 100V650 M700 100V650 M880 100V650 M1060 100V650 M1240 100V650" />
       </g>
-      <path d={`${curve} L1420 650 H-20 Z`} fill="url(#market-wash)" />
-      <path d={curve} fill="none" stroke="url(#market-gold)" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
+      <path d={`${marketCurve} L1400 650 H0 Z`} fill="url(#market-wash)" />
+      <path d={marketCurve} fill="none" stroke="url(#market-gold)" strokeWidth="7" opacity="0.08" vectorEffect="non-scaling-stroke" strokeLinejoin="round" />
+      <path d={marketCurve} fill="none" stroke="url(#market-gold)" strokeWidth="1.8" vectorEffect="non-scaling-stroke" strokeLinejoin="round" strokeLinecap="round" />
     </svg>
   );
 }
