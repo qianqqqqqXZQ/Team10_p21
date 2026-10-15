@@ -20,6 +20,7 @@ export const pageCopy = {
   projectHeading: "Project overview",
   scheduleHeading: "Timeline & workflow",
   teamHeading: "Team & work distribution",
+  teamFitHeading: "Why Our Team Fits This Project",
   heroDescription: "A proposal for AI-assisted quarterly report analysis in private equity.",
   proposalIntroduction: "We will connect PDF and Word extraction with company and industry analysis, peer comparisons, graded risks, and report generation. Key figures and findings will link to source evidence.",
   planIntroduction: "Start with one company across multiple quarters, then extend the analysis and reporting coverage.",
@@ -28,6 +29,35 @@ export const pageCopy = {
   reviewProcess: "Weekly integration reviews during concentrated development; brief asynchronous check-ins during the low-workload period. Financial definitions and risk interpretations will be checked with the supervisor or a domain reviewer.",
   scheduleIntroduction: "First demonstrable workflow by 15 December. Light review in January and February. Integration, evaluation, and delivery in March.",
 };
+
+/** From the five points in the English bid's identically titled subsection. */
+export const teamFit = [
+  {
+    title: "Strong motivation to connect AI with finance",
+    text: "Our shared interest in AI and financial analysis motivates us to engage closely with the business questions behind the software. We will turn this interest into regular discussion of authorised report examples, shared learning on financial indicators and post-investment workflows, and iterative refinement following supervisor or domain-reviewer feedback.",
+    source: sources.bid,
+  },
+  {
+    title: "PDF extraction and model selection",
+    text: "Yun Xin NG’s PDF data extraction and benchmark-based document-model comparisons are directly relevant to the first stage of P21. Together with Ziqian XIONG’s model implementation and comparative experiments, they provide a basis for testing parsing and extraction candidates on authorised quarterly reports.",
+    source: sources.bid,
+  },
+  {
+    title: "Checkable analysis and evaluation",
+    text: "Ziqian ZHANG’s annotation and JSON data-preparation experience can support field-and-source reference samples. Yue WU’s programming and technical-analysis background can support implementing quarterly comparisons and risk rules against domain-reviewed examples. This connects data-quality checks with reproducible analytical results.",
+    source: sources.bid,
+  },
+  {
+    title: "Structured storage and a complete reporting application",
+    text: "Yun Xin NG’s MySQL-backed management system, Ziqian XIONG’s Flask and React/TypeScript projects, Xinyun HU’s SQL and web foundations, and Oswald Yiwen CHONG’s application-development and CI/CD skills support the database, verification interface, integration, and deployment. Jinyao LU’s LLM-related research and writing provide a basis for investigating report-generation methods and documenting template and review criteria.",
+    source: sources.bid,
+  },
+  {
+    title: "A defined route to financial-domain validation",
+    text: "We will agree indicator definitions, reporting bases, peer criteria, and risk rules with the supervisor or domain reviewer, then implement them as checked examples, calculations, and evidence-linked outputs. This gives our existing software and AI experience a concrete route into the project’s investment-analysis requirements.",
+    source: sources.bid,
+  },
+];
 
 export const scheduleNotes = [
   {

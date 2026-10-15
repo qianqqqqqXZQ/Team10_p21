@@ -787,6 +787,48 @@ details[open] .detail-toggle::after {
   line-height: 1.8;
   margin-top: 34px;
 }
+.team-fit-list {
+  list-style: none;
+  padding: 0;
+  margin: 50px 0 0;
+}
+.team-fit-item {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 0.9fr) minmax(0, 1.6fr);
+  gap: 26px;
+  padding-block: 30px;
+  border-top: 1px solid var(--line);
+}
+.team-fit-number {
+  color: var(--gold);
+  font-size: var(--font-small);
+  padding-top: 3px;
+}
+.team-fit-item h3 {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--ink);
+  max-width: 29ch;
+}
+.team-fit-item p {
+  font-size: var(--font-body);
+  line-height: var(--reading-leading);
+  color: var(--reading-ink);
+  max-width: 72ch;
+}
+@media (max-width: 800px) {
+  .team-fit-item {
+    grid-template-columns: 26px minmax(0, 1fr);
+    gap: 14px;
+    padding-block: 24px;
+  }
+  .team-fit-item h3 {
+    max-width: none;
+  }
+  .team-fit-item p {
+    grid-column: 2;
+  }
+}
 .timeline-heading {
   margin-bottom: 48px;
 }

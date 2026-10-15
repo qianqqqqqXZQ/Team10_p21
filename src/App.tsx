@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { Experience, Member } from "./data";
-import { project, members, workflow, designDetails, pageCopy } from "./data";
+import { project, members, workflow, designDetails, pageCopy, teamFit } from "./data";
 import TimelineBridge from "./TimelineBridge";
 
 /** Fixed drawing coordinates only: no real prices, dates, or performance data. */
@@ -289,6 +289,7 @@ export default function App() {
     { id: "plan", label: "Plan" },
     { id: "timeline", label: "Timeline" },
     { id: "team", label: "Team" },
+    { id: "why-us", label: "Team fit" },
   ];
 
   useEffect(() => {
@@ -569,6 +570,24 @@ export default function App() {
           </div>
         </section>
 
+        <section className="team-fit-section container section-space" id="why-us" aria-labelledby="team-fit-title">
+          <div className="section-heading reveal">
+            <div className="section-kicker">
+              <span>04</span>
+              <span>TEAM EXPERIENCE</span>
+            </div>
+            <h2 id="team-fit-title">{pageCopy.teamFitHeading}</h2>
+          </div>
+          <ol className="team-fit-list">
+            {teamFit.map((reason, index) => (
+              <li className="team-fit-item reveal" key={reason.title}>
+                <span className="team-fit-number" aria-hidden="true">0{index + 1}</span>
+                <h3>{reason.title}</h3>
+                <p>{reason.text}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
       </main>
 
       <footer className="site-footer">
@@ -589,6 +608,7 @@ export default function App() {
               <a href="#plan">Our plan</a>
               <a href="#team">Our team</a>
               <a href="#timeline">Our schedule</a>
+              <a href="#why-us">Team fit</a>
             </div>
             <div className="footer-contact">
               <span>CONTACT</span>
