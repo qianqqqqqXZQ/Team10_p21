@@ -17,6 +17,9 @@ export const project = {
 };
 
 export const pageCopy = {
+  projectHeading: "Project overview",
+  scheduleHeading: "Timeline & workflow",
+  teamHeading: "Team & work distribution",
   heroDescription: "A proposal for AI-assisted quarterly report analysis in private equity.",
   proposalIntroduction: "We will connect PDF and Word extraction with company and industry analysis, peer comparisons, graded risks, and report generation. Key figures and findings will link to source evidence.",
   planIntroduction: "Start with one company across multiple quarters, then extend the analysis and reporting coverage.",
@@ -327,7 +330,7 @@ export const workflow = [
   },
   {
     title: "Analyse & compare",
-    text: "Track quarterly changes, benchmark peers, and surface four dimensions of risk.",
+    text: "Compare company and industry performance across quarters and peers. Assess operational, compliance, team-change, and VAM risks.",
     icon: "chart",
   },
   {
@@ -339,7 +342,7 @@ export const workflow = [
 
 export const designDetails = [
   {
-    title: "A focused first version",
+    title: "First-version scope",
     text: "One company, multiple quarters: import, extract, structure, verify, store, calculate QoQ/YoY, and generate a standardised report. Corrections create new versions and update affected analyses and drafts.",
   },
   {
@@ -347,15 +350,15 @@ export const designDetails = [
     text: "Add company and industry quarterly analysis, anomaly attribution, sector/stage peer matching, relative positions and ranking movements. Grade operational, compliance, team-change, and performance-bet (VAM) risks. Hold/exit/impairment indications and value-creation suggestions remain subject to analyst review.",
   },
   {
-    title: "The proposed technology",
+    title: "Technology & system design",
     text: "React interfaces, Python/FastAPI APIs, and MySQL structured records. Evaluate PyMuPDF/pdfplumber and python-docx, use PaddleOCR as needed, and preserve monetary precision with Decimal. LLMs structure extracted information and assemble evidence-grounded reports; calculations and risk thresholds use programmatic rules. Docker Compose supports reproducible deployment. BGE-M3/FAISS retrieval is an optional later enhancement, after the core workflow is stable.",
   },
   {
-    title: "How we will evaluate it",
+    title: "Evaluation",
     text: "Agree authorised samples, indicator definitions, templates, and validation criteria with the supervisor. Compare baseline parsing with LLM extraction on held-out companies and periods. Check extraction and source accuracy, calculations, risk errors, and report consistency; record missing evidence explicitly. Reviewer evaluation will follow the required approval.",
   },
   {
-    title: "What we will deliver",
+    title: "Deliverables",
     text: "A parsing and report-generation prototype, an adaptable standard report template, quarterly monitoring indicators, and a risk-rule library, together with evaluation results, deployment documentation, and a user guide. Financial definitions, peer criteria, and risk rules will be validated with a supervisor or domain reviewer.",
   },
 ];

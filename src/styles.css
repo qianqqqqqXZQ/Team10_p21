@@ -298,8 +298,11 @@ button {
   color: #a38b41;
 }
 .hero h1 {
-  font: 600 clamp(62px, 7.9vw, 112px)/0.98 var(--display);
-  letter-spacing: -1.8px;
+  font: 600 clamp(42px, 5.3vw, 76px)/1.08 var(--display);
+  max-width: 1000px;
+  margin-inline: auto;
+  text-wrap: balance;
+  letter-spacing: -0.7px;
   color: #a48c38;
   margin-top: 20px;
 }
@@ -1359,7 +1362,7 @@ details[open] .detail-toggle::after {
 }
 @media (min-width: 1600px) {
   .hero h1 {
-    font-size: 120px;
+    font-size: 80px;
   }
   .hero-content {
     padding-top: 55px;
@@ -1462,8 +1465,8 @@ details[open] .detail-toggle::after {
     padding: 41px 15px 45px;
   }
   .hero h1 {
-    font-size: 78px;
-    letter-spacing: -1px;
+    font-size: clamp(42px, 6vw, 68px);
+    letter-spacing: -0.5px;
   }
   .script-line {
     font-size: 27px;
@@ -1704,7 +1707,7 @@ details[open] .detail-toggle::after {
     font-size: 26px;
   }
   .hero h1 {
-    font-size: clamp(45px, 11.8vw, 69px);
+    font-size: clamp(32px, 8.4vw, 46px);
     letter-spacing: -0.7px;
     line-height: 1.05;
     margin-top: 23px;

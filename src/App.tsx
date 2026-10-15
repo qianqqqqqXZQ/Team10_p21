@@ -399,12 +399,7 @@ export default function App() {
               <span>PROJECT PROPOSAL / P21</span>
             </div>
             <div className="hero-content">
-              <p className="script-line">Our P21 proposal</p>
-              <h1 id="hero-title">
-                Quarterly reports.
-                <br />
-                <span>Analysis you can check.</span>
-              </h1>
+              <h1 id="hero-title">{project.name}</h1>
               <p className="hero-description">
                 {pageCopy.heroDescription}
               </p>
@@ -419,15 +414,15 @@ export default function App() {
             </div>
             <div className="hero-bottom">
               <div className="hero-project-title">
-                <span className="tiny-label">THE PROJECT</span>
-                <p>{project.name}</p>
+                <span className="tiny-label">TEAM</span>
+                <p>{project.team}</p>
               </div>
               <a
                 className="scroll-cue"
                 href="#project"
                 aria-label="Scroll to our project"
               >
-                <span>SCROLL TO EXPLORE</span>
+                <span>PROJECT OVERVIEW</span>
                 <span>↓</span>
               </a>
             </div>
@@ -446,9 +441,7 @@ export default function App() {
               label="OUR PROJECT"
               text={pageCopy.proposalIntroduction}
             >
-              From quarterly reports
-              <br />
-              <span>to reviewed analysis.</span>
+              {pageCopy.projectHeading}
             </SectionHeading>
           </div>
           <div className="workflow-grid">
@@ -507,9 +500,7 @@ export default function App() {
               label="OUR TIMELINE"
               text={pageCopy.scheduleIntroduction}
             >
-              Our schedule.
-              <br />
-              <span>October to April.</span>
+              {pageCopy.scheduleHeading}
             </SectionHeading>
             <div className="timeline-range">
               <span>21 OCT 2026</span>
@@ -526,9 +517,7 @@ export default function App() {
           <div className="container">
             <div className="team-heading reveal">
               <SectionHeading number="03" label="OUR TEAM">
-                Our team.
-                <br />
-                <span>Who will do what.</span>
+                {pageCopy.teamHeading}
               </SectionHeading>
               <p>
                 {pageCopy.teamIntroduction}
@@ -580,19 +569,6 @@ export default function App() {
           </div>
         </section>
 
-        <section className="closing container reveal">
-          <h2>Discuss the P21 proposal.</h2>
-          <p>Contact Ziqian XIONG, our team leader.</p>
-          <a
-            className="button button-gold"
-            href="mailto:scyzx7@nottingham.edu.cn"
-          >
-            Get in touch <Arrow diagonal />
-          </a>
-          <span className="closing-label">
-            P21 · PROJECT PROPOSAL · 2026–2027
-          </span>
-        </section>
       </main>
 
       <footer className="site-footer">
@@ -615,7 +591,7 @@ export default function App() {
               <a href="#timeline">Our schedule</a>
             </div>
             <div className="footer-contact">
-              <span>LET’S CONNECT</span>
+              <span>CONTACT</span>
               <a href="mailto:scyzx7@nottingham.edu.cn">
                 scyzx7@nottingham.edu.cn <Arrow diagonal />
               </a>
