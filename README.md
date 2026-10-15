@@ -21,6 +21,8 @@ npm run preview
 
 `build` checks both TypeScript and Vue before generating `dist/`. Deploy **only the contents of `dist/`** to a static host. Relative build URLs support deployment under a subdirectory. No backend, API keys, runtime font service, or environment variables are required. This site describes a proposed analysis system; it does not process investment reports.
 
+On Vercel, import `qianqqqqqXZQ/Team10_p21` with production branch `main`, framework preset **Vite**, and the repository root as the root directory. `vercel.json` fixes the production build command to `npm run build` and the output directory to `dist`. `npm run dev` starts a persistent local development server and must never be used as the production build command. Pushing to `main` triggers a production deployment. `.vercelignore` excludes the private archive and local QA files from CLI source uploads; `.vercel/` contains local deployment metadata and is excluded from Git.
+
 ## Architecture and editing
 
 - `src/App.tsx`: React page, responsive navigation, proposal accordions, and native accessible member dialogs.

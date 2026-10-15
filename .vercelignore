@@ -1,0 +1,6 @@
+reference/
+artifacts/
+node_modules/
+dist/
+.git/
+*.local
