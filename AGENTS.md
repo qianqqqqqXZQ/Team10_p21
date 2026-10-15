@@ -4,7 +4,7 @@ This is the English public project proposal website for UNNC GRP Team 10.
 
 - Use React for the main site and Vue 3 for the isolated timeline, within one Vite/TypeScript application.
 - Team identity must be plain text. Do not add a team crest, badge, shield, seal, or graphical team logo.
-- Source content is archived under `reference/bid-materials/`. The latest supplied English bid at `revisions/2026-10-15-latest/bid_P21.tex` is authoritative for website facts and work distribution; preserve the earlier `results/` snapshot unchanged. Internal plans may contain superseded unassigned responsibilities.
+- Source content is archived under `reference/bid-materials/`. The latest supplied English bid at `revisions/2026-10-16-latest/bid_P21.tex` is authoritative for website facts and work distribution; preserve the earlier `results/` and `revisions/2026-10-15-latest/` snapshots unchanged. Internal plans may contain superseded unassigned responsibilities.
 - Keep original source materials unchanged. Their AGENTS.md files apply to edits in their own directories.
 - Maintain public content and source provenance in `src/data.ts`. Preserve experience type and publication status; never invent results, photos, financial data, or completed project work.
 - Use the official project title and factual section headings. Do not add invented slogans, taglines, or promotional copy.

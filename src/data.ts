@@ -1,10 +1,10 @@
 /** Public editorial content. No student IDs or private source documents are imported. */
 export const sources = {
-  bid: "reference/bid-materials/revisions/2026-10-15-latest/bid_P21.tex",
-  plan: "reference/bid-materials/revisions/2026-10-15-latest/project_plan_P21.md",
+  bid: "reference/bid-materials/revisions/2026-10-16-latest/bid_P21.tex",
+  plan: "reference/bid-materials/revisions/2026-10-16-latest/project_plan_P21.md",
   profiles: "reference/bid-materials/docs/character/",
-  revision: "15 October 2026 · latest supplied English P21 bid",
-  bidSha256: "5e9451a8fda211476991edebc8d59ad0ade7c8897a7ae29c0c4ad574d1b0bbc4",
+  revision: "15 October 2026 bid · synchronised 16 October 2026",
+  bidSha256: "cd59da554360f9b0f6b44c2e160447527de4e1acc54ccd21fcfa4b092e713708",
 } as const;
 
 export const project = {
@@ -119,7 +119,7 @@ export const members: Member[] = [
       "Docker, electron-builder, and technical documentation for agent-assisted development, including harness and loop engineering.",
     ],
     responsibility:
-      "Coordinate the team and supervisor feedback; compare extraction and LLM methods, guide system design, and connect structured data with report generation.",
+      "Coordinate the team and supervisor discussions; guide system design, compare extraction and LLM methods, and connect structured data with report generation.",
     internships: [
       {
         title: "Pony.ai · Algorithm internship",
@@ -170,7 +170,7 @@ export const members: Member[] = [
       "Model training and benchmark-based vision-language model evaluation and selection.",
     ],
     responsibility:
-      "Develop PDF/Word text and table extraction, compare OCR and document models, and preserve source locations, using her document-extraction and model-evaluation experience.",
+      "Develop PDF/Word text and table extraction, compare OCR and document models, and retain source locations, drawing on her document-extraction and model-evaluation experience.",
     internships: [
       {
         title: "YTL AI Labs · Data-engineering internship",
@@ -208,7 +208,7 @@ export const members: Member[] = [
       "Academic writing and research presentation.",
     ],
     responsibility:
-      "Study reporting requirements and templates, work with Ziqian XIONG on report generation, and prepare review examples and documentation using his LLM research and writing experience.",
+      "Study reporting requirements and templates, contribute to report generation, and prepare review examples and documentation, drawing on his LLM research and writing experience.",
     internships: [
       {
         title: "Zhejiang Dishi Information Technology · R&D internship",
@@ -253,7 +253,7 @@ export const members: Member[] = [
       "CI/CD pipelines supporting code reliability and rapid software delivery.",
     ],
     responsibility:
-      "Develop backend services, database storage, and report export; integrate the application and support automated checks and deployment.",
+      "Develop backend services, database storage, and report export; connect application modules and support automated checks and deployment.",
     projects: [
       {
         title: "Blockchain-based bouldering social application",
@@ -277,7 +277,7 @@ export const members: Member[] = [
       "Labelme, JSON annotation and data management, image annotation, and dataset preparation.",
     ],
     responsibility:
-      "Prepare manually checked field-and-source samples, organise annotations, and record extraction and report errors to support testing and evaluation.",
+      "Prepare checked field and source samples, organise annotations, and record extraction and report errors, building on her research data-preparation experience.",
     research: [
       {
         title: "AI-driven Analysis and Optimization of Performance on Magnets",
@@ -303,7 +303,7 @@ export const members: Member[] = [
       "Algorithm analysis, technical literature review, and academic writing.",
     ],
     responsibility:
-      "Implement agreed quarterly calculations, industry and peer comparisons, and risk rules; check worked examples and document methods with supervisor or domain-reviewer guidance.",
+      "Implement agreed quarterly calculations, industry and peer comparisons, and risk rules; check examples and explain the methods with supervisor or domain-reviewer guidance.",
     projects: [
       {
         title: "Coursework development",
@@ -335,7 +335,7 @@ export const members: Member[] = [
       "Git, VS Code, Eclipse, and Visual Paradigm.",
     ],
     responsibility:
-      "Build upload, source-verification, comparison, and report-review pages; connect them to backend data and display missing information and review status.",
+      "Build upload, source-verification, comparison, and report-review pages; connect them to backend data and show missing information and review status.",
     projects: [
       {
         title: "Connect Four Game with AI",
@@ -417,7 +417,7 @@ export const phases: Phase[] = [
       "Agree requirements and acceptance criteria with the supervisor, and audit the available report samples.",
     tasks: [
       "Agree analyst journeys, report templates, indicator definitions, and acceptance criteria.",
-      "Inventory company, industry, peer, and VAM evidence; trial one sample and define source-location records.",
+      "Confirm access to multi-quarter company reports and industry, peer, and VAM evidence; parse a sample and record its source locations.",
       "Prepare resource requests and ethics documentation before participant-related work.",
     ],
     deliverable:
@@ -450,8 +450,8 @@ export const phases: Phase[] = [
     summary:
       "Demonstrate the complete workflow for one company across multiple quarters by 15 December.",
     tasks: [
-      "Implement comparable-basis QoQ/YoY calculations, missing-period handling, and anomaly rules.",
-      "By 15 December, demonstrate the one-company multi-quarter upload-to-export workflow, including updates after a source correction.",
+      "Implement QoQ/YoY calculations on comparable reporting bases, handle missing periods, and add initial anomaly rules.",
+      "By 15 December, demonstrate upload, verification, storage, calculation, and LLM report generation/export for one company across multiple quarters. Check that correcting a source figure updates the affected analysis and report.",
       "In parallel, pilot sourced industry/peer examples and all four risk categories; prepare charts, approval interfaces, and reusable comparison scripts. Submit interim evidence by 10 December.",
     ],
     deliverable:
@@ -485,8 +485,8 @@ export const phases: Phase[] = [
     summary:
       "Integrate the industry, peer, and risk pilots with the upload-to-export application by 9 March.",
     tasks: [
-      "Integrate piloted industry changes, sector/stage peer matching, positions, and ranking movements.",
-      "Connect the four risk categories with explicit evidence requirements and missing-data states.",
+      "Connect the piloted industry analysis and sector/stage peer comparisons, showing relative positions and quarterly ranking changes.",
+      "Add the tested operational, compliance, team-change, and VAM risk rules, with source evidence and clear missing-data states.",
       "By 9 March, connect upload/progress, source verification, charts, risk review, and report approval/export. Defer optional retrieval and valuation extensions.",
     ],
     deliverable:
@@ -504,7 +504,7 @@ export const phases: Phase[] = [
     tasks: [
       "Use prepared held-out companies/periods and reference samples to compare baseline parsing with LLM extraction.",
       "Check sources, units, reporting bases, calculations, risk errors, and report consistency.",
-      "Conduct approved reviewer evaluation in parallel with access-isolation, version-invalidation, and recovery tests. Complete essential fixes by 16 March.",
+      "Run approved analyst or domain review and reliability tests in parallel. Check access isolation, updates after corrections, missing evidence, and task recovery; complete the evaluation report and essential fixes by 16 March.",
     ],
     deliverable:
       "Evaluation findings, domain-review records, and prioritised reliability improvements.",
