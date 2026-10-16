@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import type { Experience, Member } from "./data";
 import { project, members, workflow, designDetails, pageCopy, teamFit } from "./data";
 import TimelineBridge from "./TimelineBridge";
+import Prototype from "./Prototype";
 
 /** Fixed drawing coordinates only: no real prices, dates, or performance data. */
 const marketCurve = (() => {
@@ -290,6 +291,7 @@ export default function App() {
     { id: "timeline", label: "Timeline" },
     { id: "team", label: "Team" },
     { id: "why-us", label: "Team fit" },
+    { id: "prototype", label: "Prototype" },
   ];
 
   useEffect(() => {
@@ -588,6 +590,7 @@ export default function App() {
             ))}
           </ol>
         </section>
+        <Prototype />
       </main>
 
       <footer className="site-footer">
@@ -609,6 +612,7 @@ export default function App() {
               <a href="#team">Our team</a>
               <a href="#timeline">Our schedule</a>
               <a href="#why-us">Team fit</a>
+              <a href="#prototype">Prototype</a>
             </div>
             <div className="footer-contact">
               <span>CONTACT</span>

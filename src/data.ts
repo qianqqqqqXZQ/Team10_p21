@@ -1,5 +1,6 @@
 /** Public editorial content. No student IDs or private source documents are imported. */
 export const sources = {
+  catalogue: "GRP Project Catalogue 2026–2027 · 13 October 2026 · P21 · original PDF pp. 70–71",
   bid: "reference/bid-materials/revisions/2026-10-16-latest/bid_P21.tex",
   plan: "reference/bid-materials/revisions/2026-10-16-latest/project_plan_P21.md",
   profiles: "reference/bid-materials/docs/character/",
@@ -29,6 +30,93 @@ export const pageCopy = {
   reviewProcess: "Weekly integration reviews during concentrated development; brief asynchronous check-ins during the low-workload period. Financial definitions and risk interpretations will be checked with the supervisor or a domain reviewer.",
   scheduleIntroduction: "First demonstrable workflow by 15 December. Light review in January and February. Integration, evaluation, and delivery in March.",
 };
+
+/** Requirements come from P21 and the latest bid; this interface is a proposed design, not project results. */
+export const prototype = {
+  heading: "Prototype",
+  kicker: "PROPOSED INTERFACE",
+  conceptLabel: "Concept prototype",
+  introduction: "Explore a proposed quarterly analysis workspace: company performance, evidence-linked risk review, and a standardised report for analyst approval.",
+  notice: "Interface preview only. No company reports or financial results are loaded.",
+  provenance: {
+    requirements: [sources.catalogue, sources.bid],
+    design: "Team-proposed UI concept based on P21 requirements; not a completed analysis system.",
+    publicNote: "Based on the P21 project brief and our proposed workflow. Interface design by UNNC GRP Team202610.",
+  },
+  workspace: "Quarterly analysis workspace",
+  context: [
+    { label: "Company", value: "Company not selected" },
+    { label: "Reporting quarter", value: "Period not selected" },
+  ],
+  status: "Awaiting source verification",
+  workflowLabel: "Proposed workflow",
+  workflow: ["Import", "Verify", "Analyse", "Generate", "Approve", "Export"],
+  tabsLabel: "Prototype views",
+  tabs: [
+    { id: "analysis", label: "Analysis", number: "01" },
+    { id: "risk", label: "Risk review", number: "02" },
+    { id: "report", label: "Report preview", number: "03" },
+  ],
+  emptyValue: "—",
+  pending: "Awaiting verified data",
+  labels: {
+    qoq: "QoQ", yoy: "YoY", unit: "Unit", period: "Reporting period", source: "Source",
+    unconfirmed: "Not confirmed", unlinked: "Not linked", notSelected: "Not selected",
+    grade: "Risk grade", evidence: "Evidence", review: "Review status", explanation: "Assessment basis",
+    notAssessed: "Not assessed", noEvidence: "Awaiting source evidence", reviewPending: "Pending evidence review",
+  },
+  analysis: {
+    title: "Company & quarterly analysis",
+    description: "Review verified indicators alongside company trends, industry changes, and comparable peers.",
+    metrics: ["Revenue", "Net profit", "Operating cash flow"],
+    trendTitle: "Quarterly trend",
+    trendDescription: "Company performance across comparable reporting periods.",
+    trendEmpty: "Verified quarterly values will appear here.",
+    axisLabel: "Reporting quarters",
+    comparisons: [
+      { title: "Industry environment", label: "Industry evidence", text: "Policy, market sentiment, and sector changes will be linked to dated sources before assessing benefit or pressure." },
+      { title: "Peer benchmarking", label: "Comparable peers", text: "Sector and stage matching will support relative positions and quarterly ranking changes, once comparable evidence is available." },
+    ],
+    disclosure: {
+      title: "How figures and sources would be checked",
+      text: "Each indicator would retain its source document and location, unit, reporting period, and verification status. QoQ and YoY calculations would use comparable reporting bases. Missing periods and zero or negative baselines would be identified explicitly. Industry and peer comparisons would retain their own sources and dates.",
+    },
+  },
+  risk: {
+    title: "Risk evidence & review",
+    description: "Four proposed risk categories, with source evidence and analyst review before grading.",
+    categories: [
+      { name: "Operational", text: "Review operating performance and anomalies against agreed indicators and rules." },
+      { name: "Compliance", text: "Check reported compliance events and obligations against supporting evidence." },
+      { name: "Team changes", text: "Review reported management and key-personnel changes with source context." },
+      { name: "VAM", text: "Compare verified performance with documented performance-bet (VAM) targets and terms." },
+    ],
+    disclosure: {
+      title: "How risk grading would be reviewed",
+      text: "Risk rules, thresholds, and interpretations would be agreed with the supervisor or domain reviewer. Each finding would retain evidence and an explanation, separating reported causes from hypotheses. Missing evidence would remain visible; an unassessed risk would not be treated as low risk.",
+    },
+  },
+  report: {
+    title: "Standardised report preview",
+    description: "A proposed report structure assembled from verified records and supporting evidence.",
+    documentTitle: "Post-investment quarterly report",
+    templateLabel: "PROPOSED REPORT TEMPLATE",
+    status: "Draft · Pending analyst review",
+    emptyNote: "Template structure only. Analysis and recommendations have not been generated.",
+    sections: [
+      { title: "Company overview", text: "Company context, reporting scope, and source documents." },
+      { title: "Quarterly performance", text: "Verified indicators, QoQ and YoY changes, and evidence for reported causes." },
+      { title: "Industry & peer comparisons", text: "Quarterly industry changes, comparable peers, and relative positions." },
+      { title: "Risk assessment", text: "Operational, compliance, team-change, and VAM findings with grades and evidence." },
+      { title: "Investment indications", text: "Hold, exit, or impairment indications, subject to evidence checks and analyst review." },
+      { title: "Value-creation suggestions", text: "Evidence-grounded suggestions for analyst consideration." },
+    ],
+    disclosure: {
+      title: "How a draft would become an approved report",
+      text: "The planned system would check numeric and source consistency before analyst approval and export. Unapproved reports would remain visibly marked as drafts. Corrections to verified records would update affected analyses and report versions. This preview does not generate, approve, or export reports.",
+    },
+  },
+} as const;
 
 /** From the five points in the English bid's identically titled subsection. */
 export const teamFit = [
